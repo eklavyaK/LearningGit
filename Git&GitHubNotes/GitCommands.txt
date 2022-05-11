@@ -1,0 +1,103 @@
+->pwd:
+	pwd command tells us the present working directory. The directory where git is currently working
+
+
+->pressing up arrow key copies the previous command to the current line in git terminal
+
+->creating a new file using git in the git repository
+
+	touch <filename_with_extension>
+
+->setting up user name in git:
+	
+	git config --global user.name "eklavya"
+	
+->setting up email in git:
+	
+	git config --global user.email "eklavyakumarsing100@gmail.com"
+	
+->information about current working directory is given by
+
+	git confg --list
+	
+->getting information
+	
+	git config user.name               //prints the username
+	git config user.email              //prints the user email
+	
+->checing the status of the repository
+
+	git status                        
+	
+->how to convert/initialize a folder to git repository
+
+	git init         //this command makes the folder a git repository(which means the changes in the folder will be tracked down by git). A hidden git folder is created automatically
+
+->adding files to staging area
+
+	on creating a file the file remains untracked until it is committed. Before committing the file to git we add it to staging area
+	to add a file to staging area the git command is:
+	
+	git add <filename_with_extension>
+	
+	to add all the untracked to staging area the git command is:
+	
+	git add --a
+	
+	to unstage a file the git command is:
+	
+	git rm --cached <filename_with_extension>
+	
+->how to commit staged/modified files
+
+	to commit all the staged files to git the git command is:
+	
+	git commit -m "commit message"     //this commits all the staged file to the gitbranch
+	
+	to commit a single staged/modified file to the git
+	
+	git commit <filename_with_extension> -m "commit message"  //this commits only the corresponding file to git
+	
+->running git init again (reinitializing an existing repository) does not erases the previous trackings of the repository
+so it is, safe to but unnecessary
+
+->to have the list of history of all the commits as well as information about the commit(like author, email of author, date time) the git command is
+
+	git log
+	
+->to completely delete a git repository (i.e. all the history of changes will be deleted as well as the .git hidden folder will be deleted)
+	
+	the command for that is:
+	
+	rm -rf .git                //dangerous command
+	
+->to clone a repository from in the current folder we use the git command:
+
+	git clone <url_of_the_repository>       //this clones the repository at url in a folder with same name as of repository on internet
+	
+	to clone with another name we add the desired name in double quotes after url with space in between
+	
+	git clone <url_of_the_repository> "<desired_name>" 
+	
+->listing all the files in the current repository
+
+	ls            //ls command lists all the files and folders/ in the current directory
+	
+->ignoring files(i.e. files which we don't want to track changes for)
+
+	first create a .gitignore file with command:
+	
+	touch .gitignore
+	
+	then write the name of the files to be ignored along with extension
+	
+	to ignore all the files with same extension write (in .gitignore file): *.<extension_name>
+	
+	to ignore a folder write the name of the folder along with: <folder_name>     //one thing to note that all the folders with this name will be ignored (i.e. if present 
+	//in sub-directory). solution for this is that include a slash before the folder name to inform the git that only the folder in the current directory(where .gitignore is present)
+	//have to be ignored.   ex: /<folder_name>
+	
+	if folder is empty then it is ignored by default
+	
+	to ignore something which is there in sub-director or sub-folder but not complete folder then we write the path to the file in .gitignore like for ex: 
+	<sub_directory_name>/<sub_sub_directory_name>/<sub_....._directory_name>/<file_name_with_extension>

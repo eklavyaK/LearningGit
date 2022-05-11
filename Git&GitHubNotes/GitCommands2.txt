@@ -1,0 +1,67 @@
+->to compare the difference between staging area and current working directory (i.e. difference made since last staged command)
+
+	git diff
+	
+->to compare the difference between staging area and last commit
+
+	git diff --staged
+	
+->to directly commit all the "tracked" (we can't directly commit untracked files) files to git the command is:
+
+	git commit -a -m "<commit_message>"
+	
+->to rename a file using git command
+	
+	git mv <current_file_name_with_extension> <desired_file_name_with_same_extension>
+	
+	if the file already staged then new renaming the file will keep it in staged state
+
+->one important thing is that if a file is already being tracked then adding it's name to .gitignore won't stop it from being tracked
+until it is untracked. So to move a tracked file to untracked stage the git command is
+
+	git rm --cached <file_name_with_extension>
+	
+->to see the difference made at a commit from its previous commit
+
+	git log -p           //this displays
+	
+	git log -p -n       //this displays changes made in last n commits, n=1,2,3.....
+	
+->initially git shows the changes upto the size of the terminal. To see all the changes keep enter key pressed which will scroll down
+to exit from there and go to the new command line entry press q.
+
+->to see the stat of all the commits
+
+	git log --stat                     //displays number of deletions and insertions in the commit
+	
+->to see the information about the commit (like committant name, author name, commit message):
+
+	git log --pretty=oneline            //displays the commit hash along commit message
+	git log --pretty=short				//displays the commit hash, message and author name
+	git log --pretty=full				//displays the commit hash, message, author name and committant name
+
+->to see the information of last sometimes (last n days, n months, n years where n = 1,2,3,4...)
+
+	git log --since=2.days              //we can replace days with hours, months, years, weeks
+	
+->to display the information in desired format we can use some format placeholders which can be found on git scm website
+
+like for ex:
+    
+	git log --pretty=format:"%h -- %an -- %ae"         //%h is the placeholder for hash, an is for author name, ae is for author email
+
+->to unstage a staged file we do:
+	
+	git restore --staged <file_name_with_extension>
+	
+->to rollback a file to last commit(i.e. to undo all the modifications until the file commit for the last time) we do:
+
+	git checkout -- <file_name_with_extension>
+
+->to rollback the complete repository to last commit (dangerous command, the modifications cannot be restored) we do:
+
+	git checkout -f           //this restores the state of repository when last commit was made
+	
+->we can make alias (basically abbrevations for command) or shortened commands in git, to learn more about the see this video:
+
+	https://www.youtube.com/watch?v=2vZrHkCVhDI&list=PLu0W_9lII9agwhy658ZPA0MTStKUJTWPi&index=14

@@ -1,0 +1,45 @@
+What is a remote repository?
+	Remote repositories are versions of your project 
+	that are hosted on the Internet or network somewhere.
+	In our case it is GitHub mostly.
+	
+What is push?
+	The push term refers to upload local repository content to a remote repository. 
+	Pushing is an act of transfer commits from your local repository to a remote repository. 
+	Pushing is capable of overwriting changes; caution should be taken when pushing. 
+	Moreover, we can say the push updates the remote refs with local refs.
+	
+What is pull?
+	The git pull command is used to fetch and download 
+	content from a remote repository and immediately update the local repository 
+	to match that content. Merging remote upstream changes into your local 
+	repository is a common task in Git-based collaboration work flows.
+	
+->to connect the local with remote repository on github/hoster we do:
+
+	git remote add <name_with_which_you_would_call_remote_repository_in_git> <url_of_remote_repository>
+	
+	generally the name we keep for the remote repository is "origin"
+	
+->to display the name of the remote the command is
+
+	git remote
+	
+->to display the url of the repositories where we push and pull (both urls can be different as
+repository to push and repository to pull can be different but in most cases both will be same):
+
+	git remote -v
+	
+->to push changes to remote repository we do:
+
+	git push -u origin master
+	
+	origin is the name we will be frequently using for the remote repository url
+	
+->to generate SSH keys see this video:
+
+	https://www.youtube.com/watch?v=Thx5yerhlhs&list=PLu0W_9lII9agwhy658ZPA0MTStKUJTWPi&index=13
+	
+->to pull from the remote repository we do:
+
+	git pull <url_of_the_repository>             //the url of the repository can be found in the search bar or in drop down box of code button(in green color)

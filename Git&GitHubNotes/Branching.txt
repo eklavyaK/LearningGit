@@ -1,0 +1,46 @@
+->to add a new branch (we can add a new branch from any branch not necessarily master) we do:
+
+	git checkout -b <name_of_the_branch>
+	
+->to switch from one branch to another we do:
+
+	git checkout <name_of_already_existing_branch>
+	
+->to get the list of all the branches available we do:
+
+	git branch
+
+->to get the list of all the branches which have been merged:
+
+	git branch --merged
+	
+->to get the list of all the branches which are not merged:
+
+	git branch --no-merged
+
+->One important thing about branching is that if we don't commit the modifications created in a branch
+then it will show in all the branches if the file hasn't been committed for atleast once. Means that 
+if we create a file in a branch and switch to another branch without committing it, the file will show 
+in other branch also. If the file is in staged area, then it'll be also be in staging area in other branch. 
+But if the file is commit and there are no modifications then it won't show up in other branch.
+
+->Another important thing about branching is that files present in gitignore are never tracked by git so,
+if we change or delete the locations of ignored files in a branch then it'll also reflect in all the branches,
+because they aren't tracked separately for each branch, in fact they aren't tracked at all.
+Only changes made to tracked files will be reflected in branch change.
+
+->to merge the current with another branch we do:
+
+	git merge <another_branch_name>
+	
+->to delete a branch:
+
+	git branch -d <branch_name>            //if branch is not fully merged then this command will throw a error
+	
+	even though the branch is not fully merged if we want to delete it then the command is:
+	
+	git branch -D <branch_name>
+	
+->Branch conflicts and their resolution can be understood through this video:
+
+	https://youtu.be/nfOxUaA2trY?list=PLu0W_9lII9agwhy658ZPA0MTStKUJTWPi
